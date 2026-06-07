@@ -49,7 +49,7 @@ body {
   min-height: calc(100svh - 40px);
   padding: 48px 32px 40px;
   border-radius: 56px;
-  background-image: linear-gradient(var(--card-overlay-start), var(--card-overlay-end)), url("assets/background.png");
+  background-image: linear-gradient(var(--card-overlay-start), var(--card-overlay-end)), url("assets/background.jpg");
   background-size: cover;
   background-position: center;
   text-align: center;
