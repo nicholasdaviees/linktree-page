@@ -68,6 +68,8 @@ body {
 }
 
 .links a {
+  display: block;
+  width: 100%;
   padding: 18px;
   border-radius: 18px;
   background: #edc3a3;
@@ -76,7 +78,7 @@ body {
   font-size: 1.1rem;
   text-decoration: none;
   box-shadow: none;
-  transition: background-color 0.4s ease;
+  transition: transform 0.4s ease, background-color 0.3s ease;
 
   /* Wavy style */
   clip-path: polygon(
@@ -97,18 +99,15 @@ body {
 
   /* Fade-in animation */
   opacity: 0;
-  transform: translateY(12px);
-  animation: fade-in 0.6s ease forwards;
+  animation: fade-in 1s ease forwards;
 }
 
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(12px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -119,6 +118,7 @@ body {
 
 .links a:hover,
 .links a:focus-visible {
+  transform: translateY(-2px) scale(1.02);
   background: #fedec6;
 }
 /* End links section */
