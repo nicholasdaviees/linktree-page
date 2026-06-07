@@ -1,3 +1,4 @@
+/* Begin global style */
 * {
   box-sizing: border-box;
 }
@@ -22,7 +23,9 @@ body {
   text-align: center;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
 }
+/* End global style */
 
+/* Begin profile section */
 .profile {
   letter-spacing: 0.04em;
   justify-items: center;
@@ -55,7 +58,9 @@ body {
   font-style: italic;
   color: #64483c;
 }
+/* End profile section */
 
+/* Begin links section */
 .links {
   display: grid;
   gap: 25px;
@@ -68,9 +73,12 @@ body {
   background: #edc3a3;
   color: #4a342b;
   font-weight: 700;
+  font-size: 1.1rem;
   text-decoration: none;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: none;
+  transition: background-color 0.4s ease;
+
+  /* Wavy style */
   clip-path: polygon(
     0 8%,
     6% 4%,
@@ -86,14 +94,36 @@ body {
     20% 94%,
     0 98%
   );
+
+  /* Fade-in animation */
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fade-in 0.6s ease forwards;
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.links a:nth-child(1) { animation-delay: 0s; }
+.links a:nth-child(2) { animation-delay: 0.5s; }
+.links a:nth-child(3) { animation-delay: 1s; }
+.links a:nth-child(4) { animation-delay: 1.5s; }
 
 .links a:hover,
 .links a:focus-visible {
-  transform: translateY(-2px);
-  background: #ffd6b6;
+  background: #fedec6;
 }
+/* End links section */
 
+/* Begin contact section */
 .contact-info {
   margin-top: 35px;
   display: grid;
@@ -125,3 +155,4 @@ body {
 .contact-info a:focus-visible {
   text-decoration: underline;
 }
+/* End contact section */
