@@ -7,7 +7,7 @@ There are three ways to view the page:
 
 1. Download the project files and open `index.html` in a browser.
 2. Navigate to: https://codepen.io/nicholasdaviees/pen/myOQogy
-2. Navigate to: https://tbd.com
+2. Navigate to: https://nicholasdaviees.com/
 
 ## JavaScript Feature
 
