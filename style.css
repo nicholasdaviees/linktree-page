@@ -1,4 +1,34 @@
 /* Begin global style */
+:root {
+  --page-bg: rgba(102, 72, 49, 0.9);
+  --card-overlay-start: rgba(0, 0, 0, 0.2);
+  --card-overlay-end: rgba(0, 0, 0, 0.35);
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  --text-primary: #64483c;
+  --link-bg: #edc3a3;
+  --link-bg-hover: #fedec6;
+  --link-text: #4a342b;
+  --contact-text: #f6c6a0;
+  --toggle-bg: rgba(254, 222, 198, 0.9);
+  --toggle-border: rgba(100, 72, 60, 0.18);
+  --toggle-text: #4a342b;
+}
+
+body[data-theme="dark"] {
+  --page-bg: #1a1513;
+  --card-overlay-start: rgba(18, 11, 8, 0.5);
+  --card-overlay-end: rgba(18, 11, 8, 0.72);
+  --card-shadow: rgba(0, 0, 0, 0.6);
+  --text-primary: #f3d6bf;
+  --link-bg: rgba(61, 39, 29, 0.92);
+  --link-bg-hover: rgba(83, 54, 40, 0.96);
+  --link-text: #f8e6d6;
+  --contact-text: #f3d6bf;
+  --toggle-bg: rgba(34, 23, 19, 0.85);
+  --toggle-border: rgba(243, 214, 191, 0.18);
+  --toggle-text: #f8e6d6;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8,20 +38,42 @@ body {
   display: grid;
   place-items: center;
   padding: 20px;
-  background: rgba(102, 72, 49, 0.9);
+  background: var(--page-bg);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease;
 }
 
 .page-content {
+  position: relative;
   width: min(100%, 430px);
   min-height: calc(100svh - 40px);
   padding: 48px 32px 40px;
   border-radius: 56px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35)), url("https://images.unsplash.com/photo-1494459940152-1e911caa8cc5?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA3ODA3MzV8&ixlib=rb-4.1.0&q=85");
+  background-image: linear-gradient(var(--card-overlay-start), var(--card-overlay-end)), url("https://images.unsplash.com/photo-1494459940152-1e911caa8cc5?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA3ODA3MzV8&ixlib=rb-4.1.0&q=85");
   background-size: cover;
   background-position: center;
   text-align: center;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 30px 80px var(--card-shadow);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 10px 14px;
+  border: 1px solid var(--toggle-border);
+  border-radius: 999px;
+  background: var(--toggle-bg);
+  color: var(--toggle-text);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  transform: translateY(-2px);
 }
 /* End global style */
 
@@ -45,7 +97,7 @@ body {
 .profile h1 {
   margin: 8px 0 0;
   font-size: 2.75rem;
-  color: #64483c;
+  color: var(--text-primary);
   font-weight: 700;
 }
 
@@ -56,15 +108,37 @@ body {
   font-weight: 400;
   line-height: 1.5;
   font-style: italic;
-  color: #64483c;
+  color: var(--text-primary);
 }
 /* End profile section */
 
 /* Begin links section */
+/** Begin link fade-in animation **/
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.links a:nth-child(1) { animation-delay: 0s; }
+.links a:nth-child(2) { animation-delay: 0.5s; }
+.links a:nth-child(3) { animation-delay: 1s; }
+.links a:nth-child(4) { animation-delay: 1.5s; }
+/** End link fade-in animation **/
+
 .links {
   display: grid;
   gap: 25px;
   margin-top: 40px;
+}
+
+.link-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 
 .links a {
@@ -75,8 +149,8 @@ body {
   width: 100%;
   padding: 18px;
   border-radius: 18px;
-  background: #edc3a3;
-  color: #4a342b;
+  background: var(--link-bg);
+  color: var(--link-text);
   font-weight: 700;
   font-size: 1.1rem;
   text-decoration: none;
@@ -105,30 +179,10 @@ body {
   animation: fade-in 1s ease forwards;
 }
 
-.link-icon {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.links a:nth-child(1) { animation-delay: 0s; }
-.links a:nth-child(2) { animation-delay: 0.5s; }
-.links a:nth-child(3) { animation-delay: 1s; }
-.links a:nth-child(4) { animation-delay: 1.5s; }
-
 .links a:hover,
 .links a:focus-visible {
   transform: translateY(-2px) scale(1.02);
-  background: #fedec6;
+  background: var(--link-bg-hover);
 }
 /* End links section */
 
@@ -138,7 +192,7 @@ body {
   display: grid;
   gap: 10px;
   justify-items: center;
-  color: #f6c6a0;
+  color: var(--contact-text);
 }
 
 .contact-item {
