@@ -68,7 +68,10 @@ body {
 }
 
 .links a {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   width: 100%;
   padding: 18px;
   border-radius: 18px;
@@ -100,6 +103,12 @@ body {
   /* Fade-in animation */
   opacity: 0;
   animation: fade-in 1s ease forwards;
+}
+
+.link-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 
 @keyframes fade-in {
