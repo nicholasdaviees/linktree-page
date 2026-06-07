@@ -49,7 +49,7 @@ body {
   min-height: calc(100svh - 40px);
   padding: 48px 32px 40px;
   border-radius: 56px;
-  background-image: linear-gradient(var(--card-overlay-start), var(--card-overlay-end)), url("https://images.unsplash.com/photo-1494459940152-1e911caa8cc5?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA3ODA3MzV8&ixlib=rb-4.1.0&q=85");
+  background-image: linear-gradient(var(--card-overlay-start), var(--card-overlay-end)), url("assets/background.png");
   background-size: cover;
   background-position: center;
   text-align: center;
