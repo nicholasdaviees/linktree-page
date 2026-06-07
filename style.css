@@ -71,10 +71,57 @@ body {
   text-decoration: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
   transition: transform 0.2s ease, background-color 0.2s ease;
+  clip-path: polygon(
+    0 8%,
+    6% 4%,
+    18% 7%,
+    35% 3%,
+    55% 6%,
+    74% 4%,
+    100% 7%,
+    100% 92%,
+    82% 96%,
+    64% 93%,
+    43% 97%,
+    20% 94%,
+    0 98%
+  );
 }
 
 .links a:hover,
 .links a:focus-visible {
   transform: translateY(-2px);
   background: #ffd6b6;
+}
+
+.contact-info {
+  margin-top: 35px;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  color: #f6c6a0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.contact-item svg {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.contact-info a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-info a:hover,
+.contact-info a:focus-visible {
+  text-decoration: underline;
 }
